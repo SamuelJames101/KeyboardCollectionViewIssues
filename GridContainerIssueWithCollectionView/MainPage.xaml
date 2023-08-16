@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="GridContainerIssueWithCollectionView.MainPage">
+
+    <!-- First issue. Android & iOS https://github.com/dotnet/maui/issues/16783 -->
+    <!-- 1) Type into editor then hit enter -->
+        <!-- Should be able to see new item in collectionview as scroll bar should be shown -->
+
+    <!-- Second issue iOS https://github.com/dotnet/maui/issues/16784-->
+    <!-- 1) Type into editor and hit enter -->
+    <!-- 2) Repeat step 1 over and over until editor has gone -->
+        <!-- This will push the entry under the keyboard -->
+
+    <!-- Third issue iOS https://github.com/dotnet/maui/issues/16784-->
+    <!-- 1) Type into editor and hit enter -->
+    <!-- 2) Repeat step 1 over and over a few mode times than done for the second issue -->
+        <!-- This will push the entry off the page -->
+
+    <Grid
+        RowDefinitions="*,Auto, Auto">
+        <CollectionView
+            Grid.Row="0"
+            BackgroundColor="AliceBlue"
+            ItemsSource="{Binding ItemSource}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding}" FontSize="50" BackgroundColor="PeachPuff"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Editor
+            x:Name="myEditor"
+            Grid.Row="1"
+            VerticalOptions="End"
+            BackgroundColor="MediumSeaGreen"
+            Placeholder="Send Chat"
+            PlaceholderColor="White"
+            TextColor="White"
+            Text="{Binding EditorText}"/>
+
+        <Button Grid.Row="2" Text="Fill collection" Command="{Binding FillCommand}"/>
+    </Grid>
+
+</ContentPage>
+
