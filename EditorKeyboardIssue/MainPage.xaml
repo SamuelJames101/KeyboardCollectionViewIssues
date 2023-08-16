@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EditorKeyboardIssue.MainPage">
+
+    <Grid ColumnDefinitions="*"
+        Padding="30,0"
+        BackgroundColor="PaleGreen"
+        RowDefinitions="*">
+
+        <Grid Grid.Column="0">
+            <Border BackgroundColor="White" VerticalOptions="End">
+                <Editor VerticalOptions="End"></Editor>
+            </Border>
+        </Grid>
+    </Grid>
+
+</ContentPage>
+
